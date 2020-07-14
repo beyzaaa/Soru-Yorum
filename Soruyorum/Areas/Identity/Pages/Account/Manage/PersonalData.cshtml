@@ -1,0 +1,30 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h4>Sorularım</h4>
+
+@foreach (var personProperty in ViewBag.personDetails)
+{
+
+    <div class="card">
+        <div class="card-header">
+            @personProperty.Username
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@personProperty.Title</h5>
+            <p class="card-text">@personProperty.Description</p>
+
+        </div>
+    </div>
+    <br />
+
+
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

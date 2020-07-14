@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-10">
+                @foreach (var question in ViewBag.questions)
+                {
+                    <div class="card">
+                        <h5 class="card-header">@question.Username</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">@question.Title</h5>
+                            <p class="card-text">@question.Description</p>
+                            <a class="btn btn-primary" asp-area="" asp-route-id="@question.Id" asp-controller="Home" asp-action="Comments">Yorumlar</a>
+                        </div>
+                    </div>
+                    <br />
+                }
+            </div>
+            <div class="col col-lg-2">
+                <div>Kategoriler</div>
+                @foreach (var button in ViewBag.buttons)
+                {
+                    <a class="btn btn-success btn-lg btn-block" asp-area="" asp-route-id="@button.Id" asp-controller="Home" asp-action="Category">
+                        @button.Name</a>
+                }
+            </div>
+        </div>
+    </div>

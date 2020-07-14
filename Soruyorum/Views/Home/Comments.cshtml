@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Comments";
+}
+
+
+<div class="card">
+    <h5 class="card-header">@ViewBag.Username</h5>
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.Title</h5>
+        <p class="card-text">@ViewBag.Description</p>
+    </div>
+</div>
+<h5 class="ml-3">  Comments</h5>
+
+@foreach (var comment in ViewBag.Comments)
+{
+    <div class="card">
+        <div class="card-header">
+            @comment.Username
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer">@comment.Text</footer>
+            </blockquote>
+        </div>
+    </div>
+}
+
+<h5 class="ml-3">Yorum yap</h5>
+
+
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Comments">
+
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Yorum</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Text"></textarea>
+    </div>
+    <div class="form-group ">
+        <button type="submit" class="btn btn-primary btn-block">Yayınla</button>
+    </div>
+    <textarea style="display:none;" class="form-control" id="exampleFormControlTextarea1474" rows="3" name="QuestionId">@ViewBag.Id</textarea>
+
+
+
+    <hr />
+    @ViewBag.Name
+</form>

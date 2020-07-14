@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Sorularım";
+}
+
+@foreach (var question in ViewBag.questions)
+{
+
+    <div class="card">
+        <h5 class="card-header">@question.Username</h5>
+        <div class="card-body">
+            <h5 class="card-title">@question.Title</h5>
+            <p class="card-text">@question.Description</p>
+            <a  class="btn btn-primary" asp-area="" asp-controller="Home" asp-route-id="@question.Id" asp-action="Comments">Comments</a>
+        </div>
+    </div>
+
+    <br />
+
+
+}
+
+
